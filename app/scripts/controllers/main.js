@@ -8,10 +8,8 @@
  * Controller of the nohumanApp
  */
 angular.module('nohumanApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $firebaseArray) {
+    var ref = new Firebase("https://nohuman.firebaseio.com/");
+    
+    $scope.messages = $firebaseArray(ref);
   });
